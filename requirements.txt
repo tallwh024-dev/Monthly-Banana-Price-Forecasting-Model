@@ -1,0 +1,13 @@
+R packages used:
+
+tidyverse
+quantmod
+tsibble
+tsbox
+fable
+feasts
+lubridate
+knitr
+patchwork
+tseries
+ggtime
