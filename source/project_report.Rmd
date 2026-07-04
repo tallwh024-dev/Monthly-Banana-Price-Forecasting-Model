@@ -1,0 +1,32 @@
+---
+title: "Forecasting Monthly Banana Prices"
+author: "Jackson Wang"
+date: "May 19, 2026"
+output: pdf_document
+---
+
+# Executive Summary
+
+This report evaluates monthly U.S. banana prices from January 1990 through January 2026 using FRED series `APU0000711211`. The missing October 2025 value is replaced by the assigned estimate of 0.667 dollars per pound.
+
+The purpose is to identify trend, seasonality, transformations, and autocorrelation patterns, then compare several forecasting models including Mean, Naive, Drift, Seasonal Naive, AR(1), ETS, and ARIMA models.
+
+# Business Objective
+
+Banana prices are an important input for short-term food cost planning, and monthly price movements may affect purchasing, budgeting, and inventory decisions.
+
+# Reproducible script
+
+The cleaned R script is available at:
+
+```text
+scripts/banana_price_forecasting.R
+```
+
+# Model Comparison
+
+The final 12 observations are used as a test set. The Drift model performs best on the test set, with RMSE of 0.0315 and MAPE of 4.2741%.
+
+# Conclusion
+
+The Drift model is selected as the preferred practical forecasting model. It provides the strongest out-of-sample performance and an interpretable baseline for 12-month-ahead banana price planning.
