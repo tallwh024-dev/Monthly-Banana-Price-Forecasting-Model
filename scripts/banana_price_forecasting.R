@@ -107,4 +107,24 @@ forecast_table <- final_forecast |>
   as_tibble() |>
   select(.model, Month, Point_Forecast = .mean, p5, p95)
 
-forecast_table
+kable(
+  forecast_table,
+  digits = 4,
+  caption = "12-Month Ahead Forecasts with 5th and 95th Percentiles"
+)
+
+point_forecasts <- forecast_table |>
+  select(.model, Month, Point_Forecast) |>
+  pivot_wider(names_from = .model, values_from = Point_Forecast)
+
+p5_forecasts <- forecast_table |>
+  select(.model, Month, p5) |>
+  pivot_wider(names_from = .model, values_from = p5)
+
+p95_forecasts <- forecast_table |>
+  select(.model, Month, p95) |>
+  pivot_wider(names_from = .model, values_from = p95)
+
+kable(point_forecasts, digits = 4, caption = "Point Forecasts")
+kable(p5_forecasts, digits = 4, caption = "5th Percentile Forecasts")
+kable(p95_forecasts, digits = 4, caption = "95th Percentile Forecasts")
